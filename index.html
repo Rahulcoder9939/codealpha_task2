@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Music Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="player-panel" aria-label="Music player">
+      <div class="library-pane">
+        <div class="brand-row">
+          <div>
+            <p class="eyebrow">Internship Project</p>
+            <h1>Pulse Player</h1>
+          </div>
+          <button class="icon-button" id="clearBtn" type="button" title="Clear playlist" aria-label="Clear playlist">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <label class="upload-zone" for="fileInput">
+          <input id="fileInput" type="file" accept="audio/*" multiple>
+          <span class="upload-icon" aria-hidden="true">♪</span>
+          <span class="upload-title">Add songs</span>
+          <span class="upload-subtitle">Choose MP3, WAV, M4A, or OGG files from your device</span>
+        </label>
+
+        <div class="search-wrap">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search playlist" aria-label="Search playlist">
+        </div>
+
+        <div class="playlist-header">
+          <span>Playlist</span>
+          <span id="trackCount">0 tracks</span>
+        </div>
+        <ol class="playlist" id="playlist" aria-label="Songs"></ol>
+      </div>
+
+      <div class="now-playing-pane">
+        <div class="top-status">
+          <span id="playbackMode">Ready</span>
+          <span id="totalDuration">00:00</span>
+        </div>
+
+        <div class="cover-wrap">
+          <canvas id="coverCanvas" width="360" height="360" aria-label="Animated album artwork"></canvas>
+          <div class="disc">
+            <span></span>
+          </div>
+        </div>
+
+        <div class="track-copy">
+          <p id="artistName">Load your favorite songs</p>
+          <h2 id="songTitle">No track selected</h2>
+        </div>
+
+        <div class="progress-area">
+          <span id="currentTime">00:00</span>
+          <input id="seekBar" type="range" min="0" max="100" value="0" aria-label="Seek song">
+          <span id="duration">00:00</span>
+        </div>
+
+        <div class="controls">
+          <button class="icon-button" id="shuffleBtn" type="button" title="Shuffle" aria-label="Shuffle">
+            <span aria-hidden="true">⇄</span>
+          </button>
+          <button class="icon-button" id="prevBtn" type="button" title="Previous" aria-label="Previous">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <button class="play-button" id="playBtn" type="button" title="Play" aria-label="Play">
+            <span id="playIcon" aria-hidden="true">▶</span>
+          </button>
+          <button class="icon-button" id="nextBtn" type="button" title="Next" aria-label="Next">
+            <span aria-hidden="true">›</span>
+          </button>
+          <button class="icon-button" id="repeatBtn" type="button" title="Repeat" aria-label="Repeat">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </div>
+
+        <div class="volume-row">
+          <span aria-hidden="true">▾</span>
+          <input id="volumeBar" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+          <span aria-hidden="true">▴</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="audio"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
